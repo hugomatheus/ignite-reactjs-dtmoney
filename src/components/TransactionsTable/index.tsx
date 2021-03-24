@@ -32,14 +32,14 @@ export function TransactionsTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    {transactions && transactions.map(transaction => 
+                    {transactions && transactions.map(transaction => (
                         <tr key={transaction.id}>
                             <td>{transaction.title}</td>
                             <td className={transaction.type}>R$ {transaction.amount}</td>
                             <td>{transaction.category}</td>
                             <td>{transaction.createdAt}</td>
                         </tr>
-                    )}
+                    ))}
                 </tbody>
             </table>
         </Container>
