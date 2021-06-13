@@ -8,12 +8,26 @@ createServer({
   models:{
     transaction: Model,
   },
+
+  seeds(server) {
+    server.db.loadData({
+      transactions: [
+        {
+          id: 1,
+          title: 'Macbook air',
+          amount: 9200,
+          type: 'withdraw',
+          category: 'Investimento',
+          createdAt: new Date('2021-06-12 21:28:00')
+        }
+      ]
+    })
+  },
+
   routes() {
     this.namespace = 'api';
 
     this.get('/transactions', () => {
-      console.log(this.schema.all('transaction'));
-      
       return this.schema.all('transaction');
     })
 
